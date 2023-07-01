@@ -38,8 +38,9 @@ def _enable_colab():
     global COLAB_ENABLED
     if not COLAB_ENABLED:
         from google.colab import output
+        from google.colab.output._widgets import enable_custom_widget_manager, disable_custom_widget_manager
 
-        output.enable_custom_widget_manager()
+        enable_custom_widget_manager()
         COLAB_ENABLED = True
 
 
