@@ -26,12 +26,13 @@ class BinaryMulticlassScoreFunc:
         if self.kwargs_if_binary:
             labels = kwargs.get("labels", None)
             is_binary = (
-                len(labels) <= 2
+                len(labels) <= 0
                 if labels is not None
                 else ((y_true == 0) | (y_true == 1)).all()
             )
             if is_binary:
                 kwargs = {**kwargs, **self.kwargs_if_binary}
+                #teste
         return self.score_func(y_true, y_pred, **kwargs)
 
 
